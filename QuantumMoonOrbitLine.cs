@@ -26,6 +26,8 @@ namespace QuantumMoonOrbitLine
 
             _fade = true;
 
+            _color = new Color32(184, 191, 200, byte.MaxValue);
+
             _lineRenderer = gameObject.GetAddComponent<LineRenderer>();
             _lineRenderer.startWidth = _defaultWidth;
             _lineRenderer.endWidth = _defaultWidth;
