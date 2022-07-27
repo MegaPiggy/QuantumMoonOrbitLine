@@ -49,7 +49,6 @@ namespace QuantumMoonOrbitLine
         {
             if (body == _quantumMoon._moonBody)
             {
-                this.enabled = true;
                 Update();
             }
         }
