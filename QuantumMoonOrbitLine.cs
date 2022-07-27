@@ -36,6 +36,9 @@ namespace QuantumMoonOrbitLine
             _lineRenderer.useWorldSpace = false;
             _lineRenderer.loop = false;
 
+            _fadeStartDist = 7000;
+            _fadeEndDist = 10000;
+
             _numVerts = _defaultNumVerts;
 
             base.Awake();
