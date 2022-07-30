@@ -7,7 +7,7 @@ namespace QuantumMoonOrbitLine
 {
     public class QuantumMoonOrbitLine : OrbitLine
     {
-        private Material _lineMaterial = null;
+        private Material _lineMaterial;
 
         private QuantumMoon _quantumMoon;
 
@@ -15,18 +15,21 @@ namespace QuantumMoonOrbitLine
 
         private const int _defaultWidth = 50;
 
-        private Color _defaultColor = Color.white;
+        private readonly Color _defaultColor = new Color32(184, 191, 200, byte.MaxValue);
 
         public override void Awake()
         {
-            if (_lineMaterial == null) _lineMaterial = Main.FindResourceOfTypeAndName<Material>("Effects_SPA_OrbitLine_mat");
+            if (_lineMaterial == null)
+            {
+                _lineMaterial = Main.FindResourceOfTypeAndName<Material>("Effects_SPA_OrbitLine_mat");
+            }
 
             _quantumMoon = Locator.GetQuantumMoon();
             _astroObject = Locator.GetAstroObject(AstroObject.Name.QuantumMoon);
 
             _fade = true;
 
-            _color = new Color32(184, 191, 200, byte.MaxValue);
+            _color = _defaultColor;
 
             _lineRenderer = gameObject.GetAddComponent<LineRenderer>();
             _lineRenderer.startWidth = _defaultWidth;

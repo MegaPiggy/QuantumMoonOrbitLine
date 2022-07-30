@@ -18,16 +18,16 @@ namespace QuantumMoonOrbitLine
 
         private void Start()
         {
-            LoadManager.OnCompleteSceneLoad += (scene, loadScene) =>
+            LoadManager.OnCompleteSceneLoad += (_, loadScene) =>
             {
-                if (loadScene != OWScene.SolarSystem) return;
-
-                QuantumMoon quantumMoon = Locator.GetQuantumMoon();
-
-                GameObject orbitGO = new GameObject("Orbit_QM");
-                orbitGO.transform.parent = quantumMoon.transform;
-                orbitGO.transform.localPosition = Vector3.zero;
-                orbitGO.AddComponent<QuantumMoonOrbitLine>();
+                if (loadScene == OWScene.SolarSystem)
+                {
+                    QuantumMoon quantumMoon = Locator.GetQuantumMoon();
+                    GameObject orbitGO = new GameObject("Orbit_QM");
+                    orbitGO.transform.parent = quantumMoon.transform;
+                    orbitGO.transform.localPosition = Vector3.zero;
+                    orbitGO.AddComponent<QuantumMoonOrbitLine>();
+                }
             };
         }
 
